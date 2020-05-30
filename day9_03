@@ -1,0 +1,54 @@
+# 2020_5-30_CodePractice
+
+//标题：数字颠倒
+//    描述：输入一个整数，将这个整数以字符串的形式逆序输出
+//    程序不考虑负数的情况，若数字含有0，则逆序形式也含有0，如输入为100，则输出为001。
+//【输入描述】：输入一个int整数
+//【输出描述】：将这个整数以字符串的形式逆序输出
+//【示例1】:输入  1516000
+//          输出   0006151
+
+
+import java.util.Scanner;
+//解法一：
+/*
+public class day9_02 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String s=String.valueOf(n);
+        StringBuilder sb=new StringBuilder();
+        for(int i=s.length()-1;i>=0;i--){
+           sb.append(s.charAt(i));
+        }
+        System.out.println(sb);
+    }
+}
+*/
+
+//解法二：
+//【题目解析】：
+//本题也是一个逆序问题的变种，关键在于处理0的情况。
+//【解题思路】：
+//本题关键思路:
+//每次取得当前数的个位数然后拼接到目标数的最前面即完成倒序。
+//num%10取得个位数,
+//Num/10进入下一轮循环
+//【示例代码】：
+////输入一个int整数 , 将这个整数以字符串的形式逆序输出
+
+public class day9_02{
+    public static void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        String res="";
+        while(num!=0){
+            int t1=num%10;//个位的数字
+            int t2=num/10;
+            res=res+String.valueOf(t1);
+            //这个String.valueOf(i)方法返回的是 return Integer.toString(i);
+            num=t2;
+        }
+        System.out.println(res);
+    }
+}
