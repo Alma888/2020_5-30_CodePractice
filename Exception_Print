@@ -1,0 +1,18 @@
+# 2020_5-30_CodePractice
+
+//考察对【异常】的理解
+public class Test1 {
+    public static void main(String[] args) {
+        try{
+            int i = 100 / 0;//运行时（分母）会抛出异常
+            System.out.print(i);
+        }catch(Exception e){
+            System.out.print(1);
+            throw new RuntimeException();//抛出新的运行时间异常
+        }finally{
+            System.out.print(2);//最后打印这一句，之后直接跳出程序
+        }
+        System.out.print(3);
+    }
+}
+//输出1 2 然后抛出异常
